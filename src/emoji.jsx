@@ -11,8 +11,12 @@ var Emoji = React.createClass({
     return nextProps.shortname != this.props.shortname;
   },
 
-  createMarkup: function() {
-    return {__html: emojione.shortnameToUnicode(this.props.shortname)};
+  _getChar: function() {
+    try {
+      return String.fromCodePoint(`0x${this.props.unicode}`);
+    } catch(ex) {
+      return '?';
+    }
   },
 
   render: function() {
@@ -21,7 +25,7 @@ var Emoji = React.createClass({
               onClick={this.props.onClick}
               tabIndex="0"
               className="emoji"
-              title={this.props.name}>{String.fromCodePoint(`0x${this.props.unicode}`)}</div>
+              title={this.props.name}>{this._getChar()}</div>
   }
 });
 

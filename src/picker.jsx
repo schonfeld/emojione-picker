@@ -18,35 +18,43 @@ var Picker = React.createClass({
         categories: {
           people: {
             title: 'People',
-            emoji: 'smile'
+            emoji: 'smile',
+            unicode: '1F603'
           },
           nature: {
             title: 'Nature',
-            emoji: 'hamster'
+            emoji: 'hamster',
+            unicode: '1F439'
           },
           foods: {
             title: 'Food & Drink',
-            emoji: 'pizza'
+            emoji: 'pizza',
+            unicode: '1F355'
           },
           activity: {
             title: 'Activity',
-            emoji: 'soccer'
+            emoji: 'soccer',
+            unicode: '26BD'
           },
           travel: {
             title: 'Travel & Places',
-            emoji: 'earth_americas'
+            emoji: 'earth_americas',
+            unicode: '1F30E'
           },
           objects: {
             title: 'Objects',
-            emoji: 'bulb'
+            emoji: 'bulb',
+            unicode: '1F4A1'
           },
           symbols: {
             title: 'Symbols',
-            emoji: 'clock9'
+            emoji: 'clock9',
+            unicode: '1F550'
           },
           flags: {
             title: 'Flags',
-            emoji: 'flag_gb'
+            emoji: 'flag_gb',
+            unicode: '1F30F'
           }
         }
       }
@@ -152,7 +160,7 @@ var Picker = React.createClass({
 
       _.each(this.props.categories, function(details, key){
         headers.push(<li key={key} className={this.state.category == key ? "active" : ""}>
-          <Emoji role="menuitem" aria-label={key + " category"} shortname={":"+details.emoji+":"} onClick={function(){
+          <Emoji role="menuitem" aria-label={key + " category"} shortname={":"+details.emoji+":"} unicode={details.unicode} onClick={function(){
             jumpToCategory(key);
           }}/>
         </li>);
