@@ -22,7 +22,7 @@ var Emoji = React.createClass({
   render: function() {
     var char = this._getChar();
     if(!char) {
-      return;
+      return null;
     }
 
     return <div
