@@ -15,17 +15,22 @@ var Emoji = React.createClass({
     try {
       return String.fromCodePoint(`0x${this.props.unicode}`);
     } catch(ex) {
-      return '?';
+      return false;
     }
   },
 
   render: function() {
+    var char = this._getChar();
+    if(!char) {
+      return;
+    }
+
     return <div
               {...this.props}
               onClick={this.props.onClick}
               tabIndex="0"
               className="emoji"
-              title={this.props.name}>{this._getChar()}</div>
+              title={this.props.name}>{char}</div>
   }
 });
 
