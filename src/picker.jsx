@@ -221,7 +221,6 @@ var Picker = React.createClass({
           <ul>{this.getCategories()}</ul>
         </header>
         <div className="emoji-grandlist" ref="grandlist" role="listbox">
-          {this.getModifiers()}
           {this.getSearchInput()}
           {this.getEmojis()}
         </div>
